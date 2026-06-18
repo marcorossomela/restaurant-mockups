@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Korean Village Restaurant — Korean · Toronto</title>
+<meta name="description" content="Cooked fresh, served generous." />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f%5B%5D=clash-display@400,500,600,700&f%5B%5D=satoshi@400,500,700&display=swap">
+<style>
+  :root{
+    
+    --ink:#0E0E10;
+    --ink-2:#161519;
+    --ink-3:#1E1C21;
+    --paper:#F4F1EA;
+    --muted:#A8A29A;
+    --line:rgba(244,241,234,.14);
+    --line-soft:rgba(244,241,234,.08);
+    --gold:#3F6C8C;
+    --gold-2:#3F6C8Ccc;
+    --maxw:1240px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+    --r:22px;
+    --r-sm:14px;
+    --r-btn:12px;
+    --soft:0 26px 60px -30px rgba(0,0,0,.75);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--ink);color:var(--paper);
+    font-family:"Satoshi",system-ui,-apple-system,sans-serif;
+    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  h1,h2,h3,.dis{font-family:"Clash Display","Satoshi",sans-serif;font-weight:600;line-height:1;margin:0}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .eyebrow{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;font-weight:600;color:var(--gold)}
+  .upper{text-transform:uppercase;letter-spacing:.08em}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:.6em;cursor:pointer;
+    font-family:"Satoshi";font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
+    padding:1.05em 1.7em;border-radius:var(--r-btn);border:1px solid var(--paper);background:var(--paper);color:var(--ink);
+    transition:background .35s var(--ease),color .35s var(--ease),transform .35s var(--ease),border-color .35s var(--ease);
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn--ghost{background:transparent;color:var(--paper)}
+  .btn--ghost:hover{background:var(--paper);color:var(--ink)}
+  .btn--gold{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+  .btn--gold:hover{background:var(--gold-2);border-color:var(--gold-2)}
+
+  /* header */
+  header{position:fixed;top:0;left:0;right:0;z-index:80;transition:background .4s var(--ease),border-color .4s var(--ease),backdrop-filter .4s}
+  header.scrolled{background:rgba(14,14,16,.78);backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:84px}
+  .brand{font-family:"Clash Display";font-weight:600;font-size:1.5rem;letter-spacing:.22em;text-transform:uppercase}
+  .nav-links{display:flex;gap:36px}
+  .nav-links a{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--paper);opacity:.85;position:relative;padding:6px 0}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .35s var(--ease)}
+  .nav-links a:hover{opacity:1}.nav-links a:hover::after{width:100%}
+  .nav-r{display:flex;align-items:center;gap:20px}
+  .nav-r .ph{font-size:.78rem;letter-spacing:.1em;font-weight:600;opacity:.85;font-variant-numeric:tabular-nums}
+
+  /* hero */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding-bottom:8vh}
+  .hero-bg{position:absolute;inset:0;z-index:-2;overflow:hidden}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:slowzoom 14s var(--ease) forwards;background:var(--ink-2)}
+  @keyframes slowzoom{to{transform:scale(1)}}
+  .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(14,14,16,.55) 0%,rgba(14,14,16,.15) 38%,rgba(14,14,16,.85) 100%)}
+  .hero-inner{max-width:900px}
+  .hero h1{font-size:clamp(3rem,9.5vw,8.2rem);font-weight:500;text-transform:uppercase;letter-spacing:-.005em}
+  .hero h1 .thin{font-weight:400;color:var(--gold)}
+  .hero .lede{max-width:46ch;margin:26px 0 32px;font-size:1.16rem;color:#E8E4DB}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .hero-rate{display:flex;align-items:center;gap:10px;margin-left:6px;font-size:.82rem;letter-spacing:.06em;color:#E8E4DB}
+  .stars{color:var(--gold);letter-spacing:2px}
+
+  /* ticker */
+  .ticker{border-block:1px solid var(--line);background:var(--ink-2);overflow:hidden}
+  .ticker-track{display:flex;white-space:nowrap;animation:tick 34s linear infinite}
+  .ticker span{font-family:"Clash Display";font-weight:500;font-size:.92rem;letter-spacing:.22em;text-transform:uppercase;padding:18px 0;display:inline-flex;align-items:center;color:var(--muted)}
+  .ticker span::after{content:"◆";color:var(--gold);margin:0 34px;font-size:.6rem;transform:translateY(-1px)}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  /* sections */
+  section{padding:120px 0}
+  .lab{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+  .lab .ln{height:1px;width:46px;background:var(--gold)}
+  h2.title{font-size:clamp(2.2rem,5vw,4rem);font-weight:500;text-transform:uppercase;letter-spacing:-.01em;max-width:16ch}
+
+  /* feature blocks */
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:120px}
+  .feature:last-child{margin-bottom:0}
+  .feature.flip .f-media{order:2}
+  .f-media{position:relative;overflow:hidden;border-radius:var(--r);box-shadow:var(--soft)}
+  .f-media img{width:100%;height:560px;object-fit:cover;background:var(--ink-2);transition:transform 1.2s var(--ease)}
+  .feature:hover .f-media img{transform:scale(1.05)}
+  .f-num{font-family:"Clash Display";font-size:.8rem;letter-spacing:.3em;color:var(--gold);font-weight:600}
+  .f-body h3{font-size:clamp(1.9rem,3.6vw,3rem);font-weight:500;text-transform:uppercase;margin:16px 0 18px;letter-spacing:-.01em}
+  .f-body p{color:var(--muted);max-width:42ch;font-size:1.05rem}
+  .f-price{display:inline-block;margin-top:24px;font-family:"Clash Display";font-size:1.4rem;color:var(--paper)}
+
+  /* menu */
+  .menu{background:var(--ink-2);border-block:1px solid var(--line)}
+  .menu-rows{margin-top:46px;border-top:1px solid var(--line-soft)}
+  .mrow{display:flex;align-items:baseline;gap:20px;padding:24px 0;border-bottom:1px solid var(--line-soft);transition:padding-left .4s var(--ease),background .4s}
+  .mrow:hover{padding-left:14px}
+  .mrow .nm{font-family:"Clash Display";font-weight:500;font-size:1.45rem;text-transform:uppercase;letter-spacing:.01em;white-space:nowrap}
+  .mrow .ds{flex:1;color:var(--muted);font-size:.96rem}
+  .mrow .pr{font-family:"Clash Display";font-size:1.3rem;color:var(--gold);font-variant-numeric:tabular-nums}
+  .mrow .pin{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:3px 9px;border-radius:8px;font-weight:700;margin-left:12px;vertical-align:middle}
+
+  /* ambience break */
+  .break{position:relative;min-height:78svh;display:grid;place-items:center;text-align:center;overflow:hidden}
+  .break img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;background:var(--ink-2)}
+  .break::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(14,14,16,.6)}
+  .break q{font-family:"Clash Display";font-weight:400;font-size:clamp(1.8rem,4.4vw,3.4rem);max-width:18ch;line-height:1.12;display:block;quotes:none}
+  .break .by{margin-top:24px;font-size:.76rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+
+  /* reviews */
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:50px}
+  .rev{border:1px solid var(--line);border-radius:var(--r);padding:32px;background:linear-gradient(180deg,var(--ink-2),var(--ink));box-shadow:var(--soft);transition:transform .4s var(--ease),border-color .4s,box-shadow .4s}
+  .rev:hover{transform:translateY(-8px);border-color:var(--gold)}
+  .rev p{font-size:1.08rem;line-height:1.5;margin:16px 0 24px;color:#E8E4DB}
+  .rev .who{display:flex;align-items:center;gap:12px}
+  .rev .ava{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:var(--ink);flex:none;font-family:"Clash Display"}
+  .rev .who b{display:block;font-size:.92rem;letter-spacing:.02em}
+  .rev .who small{color:var(--muted);font-size:.78rem}
+  .gsum{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:48px;color:var(--muted);font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
+
+  /* visit */
+  .visit-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:stretch}
+  .hrow{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line-soft);font-size:.98rem;letter-spacing:.02em}
+  .hrow span:first-child{text-transform:uppercase;letter-spacing:.1em;font-size:.82rem;color:var(--muted)}
+  .hrow.cl span:last-child{color:var(--gold)}
+  .addr{margin-top:26px;color:var(--muted)}
+  .map{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;min-height:420px;box-shadow:var(--soft)}
+  .map iframe{width:100%;height:100%;min-height:420px;border:0;filter:invert(91%) hue-rotate(180deg) brightness(.92) contrast(.9) grayscale(.2)}
+
+  /* brand kit */
+  .kit{background:var(--ink-2);border-top:1px solid var(--line)}
+  .kit-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start}
+  .kit-col h4{font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin:0 0 20px;font-weight:600}
+  .sw{display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid var(--line-soft)}
+  .sw:last-of-type{border-bottom:none}
+  .chip{width:34px;height:34px;border-radius:9px;flex:none}
+  .sw-meta{display:flex;flex-direction:column;gap:1px}
+  .sw-meta b{font-size:.92rem;font-weight:500;letter-spacing:.02em}
+  .sw-hex{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.82rem;color:var(--muted);text-transform:uppercase}
+  .font{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line-soft)}
+  .font-name{font-size:1.7rem;font-weight:600}
+  .font-role{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .kit-note{color:var(--muted);font-size:.86rem;margin:18px 0 0}
+
+  /* footer */
+  footer{background:var(--ink-2);border-top:1px solid var(--line);padding:88px 0 130px}
+  .foot{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px}
+  footer .brand{display:block;margin-bottom:14px}
+  .foot p{color:var(--muted);max-width:32ch}
+  .fcol h4{font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin:0 0 16px;font-weight:600}
+  .fcol ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+  .fcol a{color:var(--paper);opacity:.82}.fcol a:hover{opacity:1;color:var(--gold)}
+  .fnote{margin-top:56px;padding-top:24px;border-top:1px solid var(--line-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+
+  /* mobile bar */
+  .mbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:90;gap:10px;padding:12px 14px calc(12px + env(safe-area-inset-bottom));background:rgba(14,14,16,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+  .mbar .btn{flex:1;justify-content:center;padding:1em}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+  .rv.in{opacity:1;transform:none}
+  .hero .rv{transition-delay:.1s}
+  .heroseq{opacity:0;transform:translateY(30px);animation:hin 1s var(--ease) forwards}
+  .heroseq.s1{animation-delay:.15s}.heroseq.s2{animation-delay:.35s}.heroseq.s3{animation-delay:.55s}.heroseq.s4{animation-delay:.75s}
+  @keyframes hin{to{opacity:1;transform:none}}
+
+  @media(max-width:920px){
+    .nav-links,.nav-r .ph{display:none}
+    .feature{grid-template-columns:1fr;gap:28px;margin-bottom:80px}
+    .feature.flip .f-media{order:0}
+    .f-media img{height:380px}
+    .rev-grid{grid-template-columns:1fr}
+    .visit-grid{grid-template-columns:1fr;gap:32px}
+    .foot{grid-template-columns:1fr;gap:34px}
+    .mbar{display:flex}
+    section{padding:84px 0}
+    .mrow{flex-wrap:wrap;gap:6px 16px}
+    .mrow .ds{flex-basis:100%;order:3}
+    footer{padding-bottom:84px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .hero-bg img,.heroseq,.rv{animation:none!important;opacity:1!important;transform:none!important}
+    .ticker-track{animation:none}
+  }
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#top">Korean Village Restaurant</a>
+    <nav class="nav-links">
+      <a href="#signatures">Signatures</a>
+      <a href="#menu">Menu</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <div class="nav-r">
+      <a class="ph" href="tel:+1-416-536-0290">+1-416-536-0290</a>
+      <a class="btn btn--gold" href="https://www.opentable.com/s?term=Korean%20Village%20Restaurant%20Toronto" target="_blank" rel="noopener">Reserve</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80" alt="Korean Village Restaurant dining room" /></div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow heroseq s1">Korean · Toronto</p>
+      <h1 class="heroseq s2">Cooked fresh, served generous.</h1>
+      <p class="lede heroseq s3">Korean Village Restaurant is a neighbourhood favourite — honest food, a warm room, and a team that treats you like a regular.</p>
+      <div class="hero-actions heroseq s4">
+        <a class="btn" href="#visit">Reserve a table</a>
+        <a class="btn btn--ghost" href="#menu">View menu</a>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Korean Village Restaurant</span><span>Korean · Toronto</span><span>Cooked fresh, served generous.</span><span>Open tonight</span><span>Korean Village Restaurant</span><span>Korean · Toronto</span><span>Cooked fresh, served generous.</span><span>Open tonight</span>
+    </div>
+  </div>
+
+  <!-- SIGNATURES -->
+  <section id="signatures">
+    <div class="wrap">
+      <div class="lab rv"><span class="ln"></span><span class="eyebrow">The signatures</span></div>
+      <h2 class="title rv" style="margin-bottom:70px">Plates worth crossing town for</h2>
+      <div class="feature rv">
+        <div class="f-media"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80" alt="Chef’s Signature Plate" /></div>
+        <div class="f-body">
+          <span class="f-num">01 — Signature</span>
+          <h3>Chef’s Signature Plate</h3>
+          <p>the dish people come back for</p>
+          <span class="f-price">mkt</span>
+        </div>
+      </div>
+      <div class="feature flip rv">
+        <div class="f-media"><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=80" alt="Seasonal Starter" /></div>
+        <div class="f-body">
+          <span class="f-num">02 — Signature</span>
+          <h3>Seasonal Starter</h3>
+          <p>fresh, local, changes weekly</p>
+          <span class="f-price">$16</span>
+        </div>
+      </div>
+      <div class="feature rv">
+        <div class="f-media"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80" alt="House Main" /></div>
+        <div class="f-body">
+          <span class="f-num">03 — Signature</span>
+          <h3>House Main</h3>
+          <p>our most-ordered dish</p>
+          <span class="f-price">$28</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" class="menu">
+    <div class="wrap">
+      <div class="lab rv"><span class="ln"></span><span class="eyebrow">A taste of the menu</span></div>
+      <h2 class="title rv">Eat &amp; drink</h2>
+      <div class="menu-rows rv">
+        <div class="mrow"><span class="nm">Chef’s Signature Plate <span class="pin">signature</span></span><span class="ds">the dish people come back for</span><span class="pr">mkt</span></div>
+        <div class="mrow"><span class="nm">Seasonal Starter </span><span class="ds">fresh, local, changes weekly</span><span class="pr">$16</span></div>
+        <div class="mrow"><span class="nm">House Main </span><span class="ds">our most-ordered dish</span><span class="pr">$28</span></div>
+        <div class="mrow"><span class="nm">Dessert of the Day </span><span class="ds">ask your server</span><span class="pr">$11</span></div>
+      </div>
+      <div style="margin-top:36px" class="rv"><a class="btn btn--gold" href="#visit">See full menu &amp; reserve →</a></div>
+    </div>
+  </section>
+
+  <!-- AMBIENCE BREAK -->
+  <section class="break" style="padding:0">
+    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80" alt="Korean Village Restaurant"/>
+    <div class="wrap rv">
+      <q>Korean Village Restaurant is a neighbourhood favourite — honest food, a warm room, and a team that treats you like a regular.</q>
+      <div class="by">Korean · Toronto</div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <div class="wrap">
+      <div class="lab rv" style="justify-content:center"><span class="ln"></span><span class="eyebrow">What guests say</span><span class="ln"></span></div>
+      <h2 class="title rv" style="text-align:center;margin-inline:auto;max-width:20ch">Booked out for a reason</h2>
+      <div class="rev-grid">
+        
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit" class="menu" style="border-bottom:none">
+    <div class="wrap">
+      <div class="lab rv"><span class="ln"></span><span class="eyebrow">Find us</span></div>
+      <h2 class="title rv" style="margin-bottom:50px">Come in tonight</h2>
+      <div class="visit-grid">
+        <div class="rv">
+          <div class="hrow cl"><span>Mon</span><span>Closed</span></div>
+          <div class="hrow"><span>Tue – Thu</span><span>5:00 – 10:00 pm</span></div>
+          <div class="hrow"><span>Fri – Sat</span><span>5:00 – 11:00 pm</span></div>
+          <div class="hrow"><span>Sunday</span><span>5:00 – 9:00 pm</span></div>
+          <p class="addr">628 Bloor Street West</p>
+          <div style="display:flex;gap:12px;margin-top:22px;flex-wrap:wrap">
+            <a class="btn" href="tel:+1-416-536-0290">Call +1-416-536-0290</a>
+            <a class="btn btn--ghost" href="https://www.opentable.com/s?term=Korean%20Village%20Restaurant%20Toronto" target="_blank" rel="noopener">Reserve a table</a>
+          </div>
+        </div>
+        <div class="map rv"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to Korean Village Restaurant" src="https://www.google.com/maps?q=Korean%20Village%20Restaurant%20628%20Bloor%20Street%20West%20Toronto&output=embed"></iframe></div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="brandkit" class="kit">
+    <div class="wrap">
+      <div class="lab rv"><span class="ln"></span><span class="eyebrow">For your records</span></div>
+      <h2 class="title rv" style="margin-bottom:14px">Brand kit</h2>
+      <p class="rv" style="color:var(--muted);max-width:52ch;margin:0 0 40px">The exact colours and typefaces used in this concept — keep an eye on them, they're yours to reuse across menus, signage and socials.</p>
+      <div class="kit-grid rv">
+        <div class="kit-col">
+          <h4>Palette</h4>
+          <div class="sw"><span class="chip" style="background:#3F6C8C"></span>
+      <span class="sw-meta"><b>Accent</b><span class="sw-hex">#3F6C8C</span></span></div>
+          <div class="sw"><span class="chip" style="background:#0E0E10;box-shadow:inset 0 0 0 1px var(--line)"></span>
+      <span class="sw-meta"><b>Background</b><span class="sw-hex">#0E0E10</span></span></div>
+          <div class="sw"><span class="chip" style="background:#161519;box-shadow:inset 0 0 0 1px var(--line)"></span>
+      <span class="sw-meta"><b>Surface</b><span class="sw-hex">#161519</span></span></div>
+          <div class="sw"><span class="chip" style="background:#F4F1EA;box-shadow:inset 0 0 0 1px var(--line)"></span>
+      <span class="sw-meta"><b>Text</b><span class="sw-hex">#F4F1EA</span></span></div>
+        </div>
+        <div class="kit-col">
+          <h4>Typography</h4>
+          <div class="font"><span class="font-name" style="font-family:'Clash Display'">Clash Display</span><span class="font-role">Headings · 500–600</span></div>
+          <div class="font"><span class="font-name" style="font-family:'Satoshi'">Satoshi</span><span class="font-role">Body &amp; UI · 400–700</span></div>
+          <p class="kit-note">Free, modern typefaces (Fontshare) — embeddable on the live site at no cost.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <span class="brand">Korean Village Restaurant</span>
+        <p>Korean Village Restaurant is a neighbourhood favourite — honest food, a warm room, and a team that treats you like a regular.</p>
+      </div>
+      <div class="fcol">
+        <h4>Visit</h4>
+        <ul>
+          <li>628 Bloor Street West</li>
+          <li><a href="tel:+1-416-536-0290">+1-416-536-0290</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>More</h4>
+        <ul>
+          <li><a href="https://www.opentable.com/s?term=Korean%20Village%20Restaurant%20Toronto" target="_blank" rel="noopener">Reserve a table</a></li>
+          <li><a href="#menu">View menu</a></li>
+          <li><a href="#visit">Private events</a></li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:40px;color:var(--muted);font-size:.74rem;line-height:1.5;opacity:.85;max-width:62ch">Independent concept draft — not affiliated with or endorsed by Korean Village Restaurant. A speculative design proposal by polipoLab; removed on request.</p>
+    <div class="fnote"><span>© 2026 Korean Village Restaurant</span><span>Korean · Toronto</span></div>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn--ghost" href="tel:+1-416-536-0290">Call</a>
+  <a class="btn btn--gold" href="https://www.opentable.com/s?term=Korean%20Village%20Restaurant%20Toronto" target="_blank" rel="noopener">Reserve</a>
+</div>
+
+<script>
+  // sticky header tint
+  const hdr=document.getElementById('hdr');
+  const onScroll=()=>hdr.classList.toggle('scrolled',window.scrollY>40);
+  onScroll();addEventListener('scroll',onScroll,{passive:true});
+  // reveal on scroll
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.16});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
