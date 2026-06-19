@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mexitaco — Toronto · Concept by polipoLab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --chili:#c0341a;
+  --chili-deep:#8e2410;
+  --sun:#f6b51f;
+  --lime:#1f8a5b;
+  --cream:#fff4e3;
+  --ink:#241510;
+  --paper:#fffaf2;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+h1,h2,h3,.disp{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;line-height:1.02;letter-spacing:-.02em}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+/* papel picado strip */
+.picado{height:26px;background:
+  linear-gradient(90deg,var(--chili) 0 25%,var(--sun) 25% 50%,var(--lime) 50% 75%,var(--chili-deep) 75% 100%);
+  -webkit-mask:repeating-linear-gradient(90deg,#000 0 30px,transparent 30px 36px) bottom/100% 14px no-repeat, linear-gradient(#000,#000) top/100% 12px no-repeat;
+          mask:repeating-linear-gradient(90deg,#000 0 30px,transparent 30px 36px) bottom/100% 14px no-repeat, linear-gradient(#000,#000) top/100% 12px no-repeat;
+}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:50;background:var(--chili);color:var(--cream)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 22px;max-width:1180px;margin:0 auto}
+.brand{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.5rem;letter-spacing:.02em;display:flex;align-items:center;gap:8px}
+.brand .dot{width:14px;height:14px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 4px rgba(255,255,255,.2)}
+.nav-links{display:flex;gap:22px;align-items:center}
+.nav-links a{text-decoration:none;font-weight:500;font-size:.95rem;opacity:.9}
+.nav-links a:hover{opacity:1;color:var(--sun)}
+.btn{display:inline-block;background:var(--sun);color:var(--ink);font-weight:700;text-decoration:none;padding:12px 22px;border-radius:40px;border:2px solid var(--ink);transition:.2s}
+.btn:hover{background:var(--ink);color:var(--sun)}
+.btn.outline{background:transparent;color:var(--cream);border-color:var(--cream)}
+.btn.outline:hover{background:var(--cream);color:var(--chili)}
+.nav-links .btn{font-size:.9rem;padding:9px 18px}
+.burger{display:none;background:none;border:0;color:var(--cream);font-size:1.8rem;cursor:pointer}
+
+/* hero */
+.hero{position:relative;color:var(--cream);overflow:hidden}
+.hero-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80') center/cover;}
+.hero-img:after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(142,36,16,.92),rgba(192,52,26,.6) 55%,rgba(36,21,16,.35))}
+.hero-in{position:relative;padding:96px 0 110px}
+.eyebrow{display:inline-block;background:var(--lime);color:#fff;font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;padding:7px 14px;border-radius:30px}
+.hero h1{font-size:clamp(3.2rem,11vw,7rem);margin:18px 0 6px;text-shadow:0 6px 30px rgba(0,0,0,.3)}
+.hero h1 span{color:var(--sun)}
+.hero p.lede{font-size:clamp(1.05rem,2.4vw,1.4rem);max-width:540px;font-weight:500}
+.hero-cta{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{margin-top:40px;display:flex;gap:28px;flex-wrap:wrap;font-size:.9rem;font-weight:500;opacity:.95}
+.hero-meta b{color:var(--sun)}
+
+/* section heading */
+.shead{text-align:center;max-width:620px;margin:0 auto 46px}
+.shead .tag{color:var(--chili);font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:.78rem}
+.shead h2{font-size:clamp(2.2rem,5vw,3.4rem);margin-top:8px}
+
+section{padding:84px 0}
+.menu{background:var(--ink);color:var(--cream)}
+.menu .shead .tag{color:var(--sun)}
+.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.dish{background:rgba(255,255,255,.04);border:1px solid rgba(255,244,227,.12);border-radius:18px;padding:26px 26px 24px;position:relative;transition:.25s}
+.dish:hover{transform:translateY(-4px);border-color:var(--sun)}
+.dish .top{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.dish h3{font-size:1.45rem}
+.dish .price{font-family:'Bricolage Grotesque';font-weight:800;color:var(--sun);white-space:nowrap;font-size:1.2rem}
+.dish p{margin-top:8px;opacity:.82;font-size:.97rem}
+.flag{position:absolute;top:-12px;left:24px;background:var(--lime);color:#fff;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;border-radius:20px}
+.menu-note{text-align:center;margin-top:34px;opacity:.7;font-size:.92rem}
+
+/* gallery */
+.gallery{padding-top:0}
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gal-grid img{border-radius:18px;height:340px;object-fit:cover;width:100%}
+
+/* reviews */
+.reviews{background:var(--sun);color:var(--ink)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rev{background:var(--paper);border:2px solid var(--ink);border-radius:18px;padding:26px;box-shadow:6px 6px 0 var(--chili-deep)}
+.rev .stars{color:var(--chili);letter-spacing:3px;font-size:1.05rem}
+.rev p{margin:12px 0 16px;font-style:italic;font-size:1.02rem}
+.rev .who{font-weight:700}
+
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch}
+.visit-info h3{font-size:1.4rem;margin:22px 0 8px;color:var(--chili)}
+.hours{list-style:none;border-top:1px dashed rgba(36,21,16,.25)}
+.hours li{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed rgba(36,21,16,.25);font-weight:500}
+.hours li.closed{color:var(--chili);font-weight:700}
+.visit-info .contact{margin-top:18px;font-weight:500}
+.visit-info .contact a{color:var(--chili);font-weight:700;text-decoration:none}
+.map-box{border-radius:18px;overflow:hidden;border:2px solid var(--ink);min-height:380px}
+.map-box iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+.visit-cta{margin-top:24px}
+
+/* footer */
+footer{background:var(--chili-deep);color:var(--cream);padding:56px 0 40px;font-size:.92rem}
+.foot-top{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:flex-start}
+.kit{background:rgba(0,0,0,.2);border-radius:14px;padding:18px 20px;max-width:430px}
+.kit h4{font-family:'Bricolage Grotesque';font-size:.9rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;color:var(--sun)}
+.sw{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.sw span{width:38px;height:38px;border-radius:8px;border:1px solid rgba(255,255,255,.3);font-size:0}
+.kit p{opacity:.85;font-size:.82rem;line-height:1.5}
+.disclaim{margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);opacity:.72;font-size:.78rem;line-height:1.6}
+
+@media(max-width:820px){
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--chili-deep);padding:18px 22px;gap:16px}
+  .burger{display:block}
+  header.nav{position:relative}
+  .menu-grid,.gal-grid,.rev-grid,.visit-grid{grid-template-columns:1fr}
+  .gal-grid img{height:260px}
+  .map-box{min-height:320px}
+}
+</style>
+</head>
+<body>
+
+<div class="picado"></div>
+
+<header class="nav">
+  <div class="nav-in">
+    <div class="brand"><span class="dot"></span>Mexitaco</div>
+    <nav class="nav-links" id="navlinks">
+      <a href="#menu">Menu</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit</a>
+      <a class="btn" href="https://www.opentable.com/s?term=Mexitaco%20Toronto" target="_blank" rel="noopener">Reserve</a>
+    </nav>
+    <button class="burger" aria-label="Menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-in wrap">
+    <span class="eyebrow">Mexican Kitchen · Victoria Park</span>
+    <h1>Tacos with<br><span>heart &amp; fire.</span></h1>
+    <p class="lede">Bold, hand-built Mexican plates served the way Toronto's east end has loved them for years. Pull up a chair.</p>
+    <div class="hero-cta">
+      <a class="btn" href="https://www.opentable.com/s?term=Mexitaco%20Toronto" target="_blank" rel="noopener">Reserve a Table</a>
+      <a class="btn outline" href="#menu">See the Menu</a>
+    </div>
+    <div class="hero-meta">
+      <span><b>Dinner</b> · Tue–Sun from 5pm</span>
+      <span><b>Find us</b> · 1109 Victoria Park Ave</span>
+      <span><b>Call</b> · <a href="tel:+14165551109" style="color:var(--sun)">416 555 1109</a></span>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="shead">
+      <div class="tag">From our kitchen</div>
+      <h2>What we're plating tonight</h2>
+    </div>
+    <div class="menu-grid">
+      <div class="dish">
+        <span class="flag">Signature</span>
+        <div class="top"><h3>Chef's Signature Plate</h3><span class="price">mkt</span></div>
+        <p>The one regulars cross town for — our kitchen's proudest plate, built fresh to order.</p>
+      </div>
+      <div class="dish">
+        <div class="top"><h3>Seasonal Starter</h3><span class="price">$16</span></div>
+        <p>Fresh, local and reinvented every week. Ask what landed on the pass today.</p>
+      </div>
+      <div class="dish">
+        <div class="top"><h3>The House Main</h3><span class="price">$28</span></div>
+        <p>Our most-ordered dish, full stop — generous, layered and unapologetically bold.</p>
+      </div>
+      <div class="dish">
+        <div class="top"><h3>Dessert of the Day</h3><span class="price">$11</span></div>
+        <p>A sweet finish that changes with the mood of the kitchen. Just ask your server.</p>
+      </div>
+    </div>
+    <p class="menu-note">Prices in CAD. Menu rotates with the seasons — tell us about allergies and we'll look after you.</p>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap" style="padding-top:84px">
+    <div class="shead">
+      <div class="tag">Straight off the grill</div>
+      <h2>A taste of the table</h2>
+    </div>
+    <div class="gal-grid">
+      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80" alt="Mexican dish plated at Mexitaco">
+      <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=80" alt="Fresh tacos served at Mexitaco">
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="shead">
+      <div class="tag" style="color:var(--chili-deep)">Word of mouth</div>
+      <h2>Guests are talking</h2>
+    </div>
+    <div class="rev-grid">
+      <div class="rev">
+        <div class="stars">★★★★★</div>
+        <p>“Best tacos on Victoria Park, hands down. The signature plate is worth every penny — we book it every Friday now.”</p>
+        <div class="who">— Daniela R.</div>
+      </div>
+      <div class="rev">
+        <div class="stars">★★★★★</div>
+        <p>“Warm room, big flavours, and a team that actually remembers your name. Feels like a neighbourhood secret you want to keep.”</p>
+        <div class="who">— Marcus T.</div>
+      </div>
+      <div class="rev">
+        <div class="stars">★★★★☆</div>
+        <p>“The seasonal starter changes every visit and somehow it's always my favourite thing on the table. Bring an appetite.”</p>
+        <div class="who">— Priya S.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="shead">
+      <div class="tag">Find us</div>
+      <h2>Come hang out</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-info">
+        <h3>Where</h3>
+        <p>1109 Victoria Park Avenue, Toronto</p>
+        <h3>Hours</h3>
+        <ul class="hours">
+          <li class="closed"><span>Monday</span><span>Closed</span></li>
+          <li><span>Tue – Thu</span><span>5:00 – 10:00 pm</span></li>
+          <li><span>Fri – Sat</span><span>5:00 – 11:00 pm</span></li>
+          <li><span>Sunday</span><span>5:00 – 9:00 pm</span></li>
+        </ul>
+        <p class="contact">Reservations &amp; takeout: <a href="tel:+14165551109">416 555 1109</a></p>
+        <div class="visit-cta">
+          <a class="btn" href="https://www.opentable.com/s?term=Mexitaco%20Toronto" target="_blank" rel="noopener">Reserve a Table</a>
+        </div>
+      </div>
+      <div class="map-box">
+        <iframe src="https://www.google.com/maps?q=Mexitaco%201109%20Victoria%20Park%20Avenue%20Toronto&output=embed" loading="lazy" title="Map to Mexitaco"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="brand" style="font-size:1.8rem"><span class="dot"></span>Mexitaco</div>
+        <p style="margin-top:12px;opacity:.85;max-width:320px">Mexican comfort, served hot on Victoria Park. Dine in, take out, or reserve ahead.</p>
+        <p style="margin-top:14px"><a class="btn outline" href="https://www.opentable.com/s?term=Mexitaco%20Toronto" target="_blank" rel="noopener">Reserve</a></p>
+      </div>
+      <div class="kit">
+        <h4>Brand kit</h4>
+        <div class="sw">
+          <span style="background:#c0341a">chili</span>
+          <span style="background:#8e2410">deep</span>
+          <span style="background:#f6b51f">sun</span>
+          <span style="background:#1f8a5b">lime</span>
+          <span style="background:#fff4e3">cream</span>
+          <span style="background:#241510">ink</span>
+        </div>
+        <p>Palette: #C0341A · #8E2410 · #F6B51F · #1F8A5B · #FFF4E3 · #241510<br>
+        Type: Bricolage Grotesque (display) + DM Sans (text).</p>
+      </div>
+    </div>
+    <p class="disclaim">Independent concept draft — not affiliated with or endorsed by Mexitaco. A speculative design proposal by polipoLab; removed on request.</p>
+  </div>
+</footer>
+
+</body>
+</html>
