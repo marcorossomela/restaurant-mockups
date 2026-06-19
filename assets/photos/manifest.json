@@ -1,0 +1,101 @@
+{
+  "dishes-italian": [
+    "dishes-italian/01.jpg",
+    "dishes-italian/02.jpg",
+    "dishes-italian/03.jpg",
+    "dishes-italian/04.jpg",
+    "dishes-italian/05.jpg",
+    "dishes-italian/06.jpg",
+    "dishes-italian/07.jpg",
+    "dishes-italian/08.jpg",
+    "dishes-italian/09.jpg",
+    "dishes-italian/10.jpg",
+    "dishes-italian/11.jpg",
+    "dishes-italian/12.jpg"
+  ],
+  "dishes-japanese": [
+    "dishes-japanese/01.jpg",
+    "dishes-japanese/02.jpg",
+    "dishes-japanese/03.jpg",
+    "dishes-japanese/04.jpg",
+    "dishes-japanese/05.jpg",
+    "dishes-japanese/06.jpg",
+    "dishes-japanese/07.jpg",
+    "dishes-japanese/08.jpg",
+    "dishes-japanese/09.jpg"
+  ],
+  "dishes-chinese": [
+    "dishes-chinese/01.jpg",
+    "dishes-chinese/02.jpg",
+    "dishes-chinese/03.jpg",
+    "dishes-chinese/04.jpg",
+    "dishes-chinese/05.jpg",
+    "dishes-chinese/06.jpg",
+    "dishes-chinese/07.jpg",
+    "dishes-chinese/08.jpg",
+    "dishes-chinese/09.jpg",
+    "dishes-chinese/10.jpg",
+    "dishes-chinese/11.jpg",
+    "dishes-chinese/12.jpg"
+  ],
+  "dishes-mexican": [
+    "dishes-mexican/01.jpg",
+    "dishes-mexican/02.jpg",
+    "dishes-mexican/03.jpg",
+    "dishes-mexican/04.jpg",
+    "dishes-mexican/05.jpg",
+    "dishes-mexican/06.jpg"
+  ],
+  "dishes-thai": [
+    "dishes-thai/01.jpg",
+    "dishes-thai/02.jpg",
+    "dishes-thai/03.jpg",
+    "dishes-thai/04.jpg",
+    "dishes-thai/05.jpg",
+    "dishes-thai/06.jpg",
+    "dishes-thai/07.jpg",
+    "dishes-thai/08.jpg",
+    "dishes-thai/09.jpg",
+    "dishes-thai/10.jpg",
+    "dishes-thai/11.jpg",
+    "dishes-thai/12.jpg"
+  ],
+  "dishes-greek": [
+    "dishes-greek/01.jpg",
+    "dishes-greek/02.jpg",
+    "dishes-greek/03.jpg",
+    "dishes-greek/04.jpg",
+    "dishes-greek/05.jpg",
+    "dishes-greek/06.jpg",
+    "dishes-greek/07.jpg",
+    "dishes-greek/08.jpg"
+  ],
+  "dishes-mediterranean": [
+    "dishes-mediterranean/01.jpg",
+    "dishes-mediterranean/02.jpg",
+    "dishes-mediterranean/03.jpg",
+    "dishes-mediterranean/04.jpg",
+    "dishes-mediterranean/05.jpg",
+    "dishes-mediterranean/06.jpg",
+    "dishes-mediterranean/07.jpg",
+    "dishes-mediterranean/08.jpg",
+    "dishes-mediterranean/09.jpg",
+    "dishes-mediterranean/10.jpg",
+    "dishes-mediterranean/11.jpg",
+    "dishes-mediterranean/12.jpg"
+  ],
+  "dishes-generic": [
+    "dishes-generic/01.jpg",
+    "dishes-generic/02.jpg",
+    "dishes-generic/03.jpg",
+    "dishes-generic/04.jpg",
+    "dishes-generic/05.jpg",
+    "dishes-generic/06.jpg",
+    "dishes-generic/07.jpg",
+    "dishes-generic/08.jpg",
+    "dishes-generic/09.jpg",
+    "dishes-generic/10.jpg",
+    "dishes-generic/11.jpg",
+    "dishes-generic/12.jpg"
+  ]
+}
