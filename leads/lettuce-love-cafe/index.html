@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lettuce Love Cafe — Plant-Based, Toronto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2ECDF;
+    --paper-2:#EAE2D0;
+    --ink:#23311F;
+    --ink-soft:#4A573F;
+    --forest:#2E4329;
+    --olive:#7C8A4E;
+    --clay:#B7693F;
+    --cream:#FBF7EE;
+    --line:#D8CFBA;
+    --shadow:rgba(46,55,33,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Hanken Grotesk',sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    background-image:
+      radial-gradient(rgba(124,138,78,.05) 1px, transparent 1px),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-size:22px 22px, 180px 180px;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;line-height:1.02;letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  .eyebrow{
+    font-family:'Hanken Grotesk',sans-serif;
+    font-size:.72rem;letter-spacing:.36em;text-transform:uppercase;
+    font-weight:600;color:var(--olive);
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;
+    background:rgba(242,236,223,.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .brand{font-family:'Fraunces',serif;font-size:1.15rem;letter-spacing:-.02em}
+  .topbar nav{display:flex;gap:26px;font-size:.82rem;letter-spacing:.05em}
+  .topbar nav a{color:var(--ink-soft)}
+  .topbar nav a:hover{color:var(--forest)}
+  .btn{
+    display:inline-block;border-radius:999px;
+    font-family:'Hanken Grotesk',sans-serif;font-weight:600;
+    font-size:.82rem;letter-spacing:.05em;
+    padding:11px 22px;background:var(--forest);color:var(--cream);
+    box-shadow:0 6px 16px var(--shadow);
+    transition:transform .25s ease, background .25s ease;
+  }
+  .btn:hover{transform:translateY(-2px);background:var(--ink)}
+  .btn.clay{background:var(--clay)}
+  .btn.clay:hover{background:#9c542f}
+  .btn.outline{background:transparent;color:var(--forest);border:1.5px solid var(--forest);box-shadow:none}
+  .btn.outline:hover{background:var(--forest);color:var(--cream)}
+  @media(max-width:780px){.topbar nav{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:74px 0 30px}
+  .hero .label{display:flex;gap:18px;align-items:center;margin-bottom:30px}
+  .hero .label span:last-child{font-size:.78rem;color:var(--ink-soft);letter-spacing:.04em}
+  .hero h1{
+    font-size:clamp(3.4rem,12vw,9.4rem);
+    color:var(--forest);
+  }
+  .hero h1 em{font-style:italic;color:var(--clay);font-weight:400}
+  .hero .sub{
+    display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;
+    gap:24px;margin-top:34px;
+    border-top:1px solid var(--line);padding-top:24px;
+  }
+  .hero .sub p{max-width:430px;color:var(--ink-soft);font-size:1.05rem}
+  .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
+
+  /* ---------- image strip ---------- */
+  .strip{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:12px;
+    margin-top:46px;
+  }
+  .strip .frame{
+    position:relative;overflow:hidden;border-radius:8px;
+    height:200px;
+    box-shadow:0 10px 26px var(--shadow);
+    border:6px solid var(--cream);
+  }
+  .strip .frame img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    transform:scale(1.02);
+    transition:transform 7s ease;
+  }
+  .strip .frame.zoom img{transform:scale(1.18)}
+  .strip .frame:nth-child(2),.strip .frame:nth-child(4){margin-top:24px}
+  @media(max-width:780px){
+    .strip{grid-template-columns:repeat(2,1fr)}
+    .strip .frame:nth-child(5){display:none}
+    .strip .frame{height:150px}
+  }
+
+  /* ---------- section base ---------- */
+  section{padding:84px 0}
+  .sec-head{display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:48px}
+  .sec-head h2{font-size:clamp(2.1rem,5vw,3.4rem);color:var(--forest)}
+
+  /* ---------- menu ---------- */
+  .menu{background:var(--paper-2)}
+  .menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+  .dish{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:30px 30px 28px;
+    position:relative;
+    box-shadow:0 14px 30px rgba(46,55,33,.10);
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .dish:hover{transform:translateY(-4px);box-shadow:0 22px 40px rgba(46,55,33,.16)}
+  .dish .top{display:flex;justify-content:space-between;align-items:baseline;gap:18px}
+  .dish h3{font-size:1.6rem;color:var(--ink)}
+  .dish .price{
+    font-family:'Fraunces',serif;font-size:1.2rem;color:var(--clay);
+    white-space:nowrap;
+  }
+  .dish p{margin-top:10px;color:var(--ink-soft);font-size:.98rem}
+  .dish .tag{
+    display:inline-block;margin-top:16px;
+    font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;
+    font-weight:600;color:var(--cream);background:var(--olive);
+    padding:5px 11px;border-radius:999px;
+  }
+  .dish.signature{border:1.5px solid var(--clay)}
+  @media(max-width:680px){.menu-grid{grid-template-columns:1fr}}
+
+  /* ---------- reviews ---------- */
+  .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .quote{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:34px 28px;
+    box-shadow:0 12px 26px rgba(46,55,33,.10);
+    position:relative;
+  }
+  .quote:nth-child(2){transform:rotate(-1deg)}
+  .quote:nth-child(3){transform:rotate(.8deg)}
+  .quote .mark{font-family:'Fraunces',serif;font-size:3.4rem;color:var(--olive);line-height:.4;display:block;height:26px}
+  .quote p{font-family:'Fraunces',serif;font-style:italic;font-size:1.18rem;color:var(--ink);margin-bottom:18px}
+  .quote .who{font-size:.8rem;letter-spacing:.08em;color:var(--ink-soft);text-transform:uppercase;font-weight:600}
+  @media(max-width:780px){.reviews-grid{grid-template-columns:1fr}.quote{transform:none!important}}
+
+  /* ---------- visit ---------- */
+  .visit{background:var(--forest);color:var(--cream)}
+  .visit .eyebrow{color:#C2CB8C}
+  .visit h2{color:var(--cream)}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch}
+  .info-card{
+    background:rgba(251,247,238,.06);
+    border:1px solid rgba(251,247,238,.18);
+    border-radius:14px;padding:34px;
+  }
+  .info-card h3{font-size:1.4rem;color:var(--cream);margin-bottom:18px}
+  .hours{list-style:none;font-size:.96rem}
+  .hours li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed rgba(251,247,238,.18)}
+  .hours li span:last-child{color:#C9CFA8}
+  .addr{margin-top:24px;font-size:.98rem;line-height:1.8;color:#DCE0C8}
+  .addr a{color:var(--cream);border-bottom:1px solid rgba(251,247,238,.4)}
+  .visit .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+  .map-card{border-radius:14px;overflow:hidden;border:6px solid rgba(251,247,238,.12);min-height:380px}
+  .map-card iframe{width:100%;height:100%;min-height:380px;border:0;display:block;filter:saturate(.9)}
+  @media(max-width:780px){.visit-grid{grid-template-columns:1fr}}
+
+  /* ---------- closing ---------- */
+  .closing{text-align:center;padding:96px 0}
+  .closing h2{font-size:clamp(2.4rem,7vw,5rem);color:var(--forest);max-width:900px;margin:0 auto 28px}
+  .closing h2 em{font-style:italic;color:var(--clay)}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);color:#CFD3BE;padding:54px 0 40px;font-size:.86rem}
+  .foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+  footer .brand{font-family:'Fraunces',serif;font-size:1.4rem;color:var(--cream)}
+  .kit{font-size:.74rem;line-height:1.9;letter-spacing:.02em;max-width:330px}
+  .swatches{display:flex;gap:8px;margin:12px 0}
+  .sw{width:24px;height:24px;border-radius:5px;border:1px solid rgba(255,255,255,.2)}
+  .disc{margin-top:30px;font-size:.72rem;color:#8C9279;border-top:1px solid rgba(255,255,255,.12);padding-top:20px;max-width:760px}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease, transform .9s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">Lettuce&nbsp;Love</div>
+  <nav>
+    <a href="#menu">Menu</a>
+    <a href="#reviews">Guests</a>
+    <a href="#visit">Visit</a>
+    <a href="tel:+14379139151">Call</a>
+  </nav>
+  <a class="btn" href="https://www.opentable.com/s?term=Lettuce%20Love%20Cafe%20Toronto" target="_blank" rel="noopener">Reserve</a>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="label reveal">
+      <span class="eyebrow">Plant-Based Café · Bloor West, Toronto</span>
+      <span>est. on Bloor Street West</span>
+    </div>
+    <h1 class="reveal">Lettuce<br>Love <em>Cafe.</em></h1>
+    <div class="sub reveal">
+      <p>Eat better, drink better. A calm corner of the city where vegetables are the headline act — local, seasonal, and quietly excellent.</p>
+      <div class="ctas">
+        <a class="btn clay" href="https://www.opentable.com/s?term=Lettuce%20Love%20Cafe%20Toronto" target="_blank" rel="noopener">Reserve a table</a>
+        <a class="btn outline" href="#menu">See the menu</a>
+      </div>
+    </div>
+
+    <!-- thin image strip -->
+    <div class="strip">
+      <div class="frame reveal"><img src="https://marcorossomela.github.io/restaurant-mockups/assets/photos/dishes-generic/11.jpg" alt="Signature plate"></div>
+      <div class="frame reveal"><img src="https://marcorossomela.github.io/restaurant-mockups/assets/photos/dishes-generic/03.jpg" alt="Seasonal dish"></div>
+      <div class="frame reveal"><img src="https://marcorossomela.github.io/restaurant-mockups/assets/photos/dishes-generic/07.jpg" alt="House main"></div>
+      <div class="frame reveal"><img src="https://marcorossomela.github.io/restaurant-mockups/assets/photos/dishes-generic/09.jpg" alt="Fresh greens"></div>
+      <div class="frame reveal"><img src="https://marcorossomela.github.io/restaurant-mockups/assets/photos/dishes-generic/08.jpg" alt="Dessert"></div>
+    </div>
+  </div>
+</header>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The Table</span>
+      <h2>A short, seasonal menu.</h2>
+    </div>
+    <div class="menu-grid">
+      <article class="dish signature reveal">
+        <div class="top">
+          <h3>Chef's Signature Plate</h3>
+          <span class="price">mkt</span>
+        </div>
+        <p>The dish people come back for — built around whatever's at its peak, plated with intention.</p>
+        <span class="tag">Signature</span>
+      </article>
+
+      <article class="dish reveal">
+        <div class="top">
+          <h3>Seasonal Starter</h3>
+          <span class="price">$16</span>
+        </div>
+        <p>Fresh, local and changing weekly. A bright first taste of what the farmers brought us this week.</p>
+      </article>
+
+      <article class="dish reveal">
+        <div class="top">
+          <h3>House Main</h3>
+          <span class="price">$28</span>
+        </div>
+        <p>Our most-ordered dish — comfort food, reimagined entirely from plants and proud of it.</p>
+      </article>
+
+      <article class="dish reveal">
+        <div class="top">
+          <h3>Dessert of the Day</h3>
+          <span class="price">$11</span>
+        </div>
+        <p>Ask your server. There's always something quietly indulgent waiting at the end of the meal.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Kind Words</span>
+      <h2>What our guests say.</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="quote reveal">
+        <span class="mark">“</span>
+        <p>I didn't realise I was eating plant-based until halfway through — it's just genuinely delicious food. The signature plate is unreal.</p>
+        <div class="who">— Priya M., Roncesvalles</div>
+      </div>
+      <div class="quote reveal">
+        <span class="mark">“</span>
+        <p>Calm room, kind service, and a menu that actually changes with the seasons. It's become our standing Friday night.</p>
+        <div class="who">— Daniel & Co., High Park</div>
+      </div>
+      <div class="quote reveal">
+        <span class="mark">“</span>
+        <p>Everything tastes fresh and considered. I brought my very sceptical dad and he ordered seconds of dessert.</p>
+        <div class="who">— Hannah L., Bloor West</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Find Us</span>
+      <h2>Come sit with us.</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="info-card reveal">
+        <h3>Hours</h3>
+        <ul class="hours">
+          <li><span>Monday</span><span>Closed</span></li>
+          <li><span>Tue – Thu</span><span>5:00 – 10:00 pm</span></li>
+          <li><span>Fri – Sat</span><span>5:00 – 11:00 pm</span></li>
+          <li><span>Sunday</span><span>5:00 – 9:00 pm</span></li>
+        </ul>
+        <div class="addr">
+          2241 Bloor Street West<br>
+          Toronto, Ontario<br>
+          <a href="tel:+14379139151">+1 437 913 9151</a>
+        </div>
+        <div class="ctas">
+          <a class="btn clay" href="https://www.opentable.com/s?term=Lettuce%20Love%20Cafe%20Toronto" target="_blank" rel="noopener">Reserve a table</a>
+          <a class="btn outline" style="color:var(--cream);border-color:var(--cream)" href="tel:+14379139151">Call the café</a>
+        </div>
+      </div>
+      <div class="map-card reveal">
+        <iframe src="https://www.google.com/maps?q=Lettuce%20Love%20Cafe%202241%20Bloor%20Street%20West%20Toronto&output=embed" loading="lazy" title="Map to Lettuce Love Cafe"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="wrap">
+    <h2 class="reveal">Eat better. <em>Drink better.</em></h2>
+    <a class="btn clay reveal" href="https://www.opentable.com/s?term=Lettuce%20Love%20Cafe%20Toronto" target="_blank" rel="noopener">Reserve your table</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand">Lettuce Love Cafe</div>
+        <p style="margin-top:8px;color:#A7AC92">2241 Bloor Street West · Toronto<br><a href="tel:+14379139151" style="color:#CFD3BE">+1 437 913 9151</a></p>
+      </div>
+      <div class="kit">
+        <strong style="color:var(--cream)">Brand kit</strong>
+        <div class="swatches">
+          <span class="sw" style="background:#2E4329"></span>
+          <span class="sw" style="background:#7C8A4E"></span>
+          <span class="sw" style="background:#B7693F"></span>
+          <span class="sw" style="background:#F2ECDF"></span>
+          <span class="sw" style="background:#23311F"></span>
+        </div>
+        Palette · Forest #2E4329 · Olive #7C8A4E · Clay #B7693F · Paper #F2ECDF · Ink #23311F<br>
+        Type · Fraunces (display serif) + Hanken Grotesk (body grotesque)
+      </div>
+    </div>
+    <p class="disc">Independent concept draft — not affiliated with or endorsed by Lettuce Love Cafe. A speculative design proposal by polipoLab; removed on request.</p>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // slow image zoom on the hero strip when in view
+  const zo = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('zoom'); });
+  },{threshold:.3});
+  document.querySelectorAll('.strip .frame').forEach(f=>zo.observe(f));
+</script>
+</body>
+</html>
